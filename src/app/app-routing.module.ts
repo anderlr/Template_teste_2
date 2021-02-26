@@ -14,10 +14,6 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
-    path: "presentation",
-    component: PresentationComponent
-  },
-  {
     path: "",
     component: AdminLayoutComponent,
     children: [

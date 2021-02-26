@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl,Validators} from '@angular/forms';
 // import { TokenStorageService } from '../../_services/token-storage.service';
 // import { AuthService } from '../../_services/auth.service';
 // import { AuthGuardService} from '../../_services/authguard.service'
@@ -19,9 +19,9 @@ export class SignInComponent implements OnInit, OnDestroy {
   //   private guard:  AuthGuardService
   //     ) {}
 
-  signinForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+  signInForm = new FormGroup({
+    email: new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required]),
     rememberMe: new FormControl(''),
   })
   isLoggedIn = false;
@@ -40,10 +40,19 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    let username = this.signinForm.get('username').value
-    let password = this.signinForm.get('password').value
 
-    // this.authService.login(username, password).subscribe(
+    //Testando o formulario de login
+    let email = this.signInForm.get('email').value
+    let password = this.signInForm.get('password').value
+
+    console.log("Email:",email)
+    console.log("Password:",password)
+
+
+    //autenticando
+
+
+    // this.authService.login(email, password).subscribe(
     //   data => {
     //     this.tokenStorage.saveToken(data.accessToken);
     //     this.tokenStorage.saveUser(data);

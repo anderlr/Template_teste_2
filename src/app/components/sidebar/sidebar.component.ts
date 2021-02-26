@@ -32,6 +32,18 @@ export interface ChildrenItems2 {
 //Menu Items
 export const ROUTES: RouteInfo[] = [
   {
+    path: "",
+    title: "Pages",
+    type: "sub",
+    icontype: "ni-books text-primary",
+    isCollapsed: true,
+    children: [
+      { path: "sign-in", title: "Sign In", type: "link" },
+      { path: "sign-up", title: "Sign Up", type: "link" },
+      { path: "forgot-password", title: "Forgot Password", type: "link" },
+    ]
+  },
+  {
     path: "/dashboards",
     title: "Dashboards",
     type: "sub",
@@ -51,8 +63,6 @@ export const ROUTES: RouteInfo[] = [
     isCollapsed: true,
     children: [
       { path: "pricing", title: "Pricing", type: "link" },
-      { path: "sign-in", title: "Sign-in", type: "link" },
-      { path: "sign-up", title: "Sign-up", type: "link" },
       { path: "lock", title: "Lock", type: "link" },
       { path: "timeline", title: "Timeline", type: "link" },
       { path: "user-profile", title: "User Profile", type: "link" }

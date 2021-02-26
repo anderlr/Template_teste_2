@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { AuthLayoutRoutes } from "./auth-layout.routing";
 
 import { SignInComponent } from "../../screens/sign-in/sign-in.component";
@@ -13,7 +13,8 @@ import { SignUpComponent } from "../../screens/sign-up/sign-up.component";
   imports: [
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     SignInComponent,

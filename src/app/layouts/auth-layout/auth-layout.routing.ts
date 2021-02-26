@@ -55,4 +55,13 @@ export const AuthLayoutRoutes: Routes = [
       },
     ],
   },
+  {
+    path: "",
+    children: [
+      {
+        path: "forgot-password",
+        component: ForgotPasswordComponent,
+      },
+    ],
+  },
 ];

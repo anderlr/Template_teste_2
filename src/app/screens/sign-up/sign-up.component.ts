@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormControl,FormGroup,Validators } from '@angular/forms'
 // import { AuthService } from '../../_services/auth.service';
 
@@ -19,9 +19,9 @@ export class SignUpComponent implements OnInit {
 
 export class SignupComponent implements OnInit {
 
-  signupForm = new FormGroup({
+  signUpForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    emailAddress: new FormControl('',[Validators.required,Validators.email]),
+    email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
   })
   isSuccessful = false;
@@ -30,16 +30,21 @@ export class SignupComponent implements OnInit {
 
   // constructor(private authService: AuthService, private router: Router) { }
 
-
   ngOnInit() {
   }
 
   onSubmit(): void {
-    let username = this.signupForm.get('username').value;
-    let emailAddress = this.signupForm.get('emailAddress').value;
-    let password = this.signupForm.get('password').value;
+    let username = this.signUpForm.get('username').value;
+    let email = this.signUpForm.get('email').value;
+    let password = this.signUpForm.get('password').value;
 
-    // this.authService.register(username, emailAddress, password).subscribe(
+    //Testando o formulario de registro
+    
+    console.log("Username:",username)
+    console.log("Email:",email)
+    console.log("Password:",password)
+
+    // this.authService.register(username, email, password).subscribe(
     //   data => {
     //     console.log(data);
     //     this.isSuccessful = true;

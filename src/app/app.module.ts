@@ -16,6 +16,8 @@ import { PresentationModule } from "./screens/presentation/presentation.module";
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from "./components/components.module";
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { ForgotPasswordComponent } from './screens/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './screens/verify-email/verify-email.component';
@@ -31,6 +33,7 @@ import { VerifyEmailComponent } from './screens/verify-email/verify-email.compon
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     ComponentsModule,
@@ -43,7 +46,17 @@ import { VerifyEmailComponent } from './screens/verify-email/verify-email.compon
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+//========Autenticacao========
+// import { authInterceptorProviders } from './_helpers/auth.interceptor';
+// import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+// import { AuthGuardService} from './_services/authguard.service'
+
+// providers: [authInterceptorProviders,
+  //   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+  //   JwtHelperService, AuthGuardService],
