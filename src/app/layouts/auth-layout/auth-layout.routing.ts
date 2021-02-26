@@ -5,7 +5,8 @@ import { PricingComponent } from "../../screens/examples/pricing/pricing.compone
 import { LockComponent } from "../../screens/examples/lock/lock.component";
 import { SignUpComponent } from "../../screens/sign-up/sign-up.component";
 import { PresentationComponent } from "../../screens/presentation/presentation.component";
-import {UserProfileComponent} from "../../screens/user-profile/user-profile.component"
+import { UserProfileComponent } from "../../screens/user-profile/user-profile.component";
+import {ForgotPasswordComponent} from "../../screens/forgot-password/forgot-password.component"
 
 export const AuthLayoutRoutes: Routes = [
   {
@@ -13,46 +14,45 @@ export const AuthLayoutRoutes: Routes = [
     children: [
       {
         path: "sign-in",
-        component: SignInComponent
-      }
-    ]
+        component: SignInComponent,
+      },
+    ],
   },
   {
     path: "",
     children: [
       {
         path: "lock",
-        component: LockComponent
-      }
-    ]
+        component: LockComponent,
+      },
+    ],
   },
   {
     path: "",
     children: [
       {
         path: "sign-up",
-        component: SignUpComponent
-      }
-    ]
+        component: SignUpComponent,
+      },
+    ],
   },
   {
     path: "",
     children: [
       {
         path: "pricing",
-        component: PricingComponent
-      }
-    ]
+        component: PricingComponent,
+      },
+    ],
   },
-  { path: "",
+  {
+    path: "",
     children: [
-    {
-      path: "user-profile",
-      component: UserProfileComponent,
-      //canActivate: [AuthGuardService]//o caminho user-profile usa o AuthGuard pela classe canActivate
-    }
-      
-    ]
-  
-    },
+      {
+        path: "user-profile",
+        component: UserProfileComponent,
+        //canActivate: [AuthGuardService]//o caminho user-profile usa o AuthGuard pela classe canActivate
+      },
+    ],
+  },
 ];
