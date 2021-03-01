@@ -12,12 +12,6 @@ export class SignUpComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  constructor() {}
-
-  ngOnInit() {}
-}
-
-export class SignupComponent implements OnInit {
 
   signUpForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -33,6 +27,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  constructor() {}
+  
   onSubmit(): void {
     let username = this.signUpForm.get('username').value;
     let email = this.signUpForm.get('email').value;
@@ -58,5 +54,6 @@ export class SignupComponent implements OnInit {
     // );
   }
 
-
+  
 }
+
