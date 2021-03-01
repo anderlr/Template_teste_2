@@ -45,13 +45,6 @@ export class SignInComponent implements OnInit, OnDestroy {
     let email = this.signInForm.get('email').value
     let password = this.signInForm.get('password').value
 
-    // console.log("Email:",email)
-    // console.log("Password:",password)
-
-
-    //autenticando
-
-
     this.authService.login(email, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
