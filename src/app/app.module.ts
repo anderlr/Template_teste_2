@@ -22,6 +22,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ForgotPasswordComponent } from './screens/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './screens/verify-email/verify-email.component';
 
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { AuthGuardService} from './_services/authguard.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,17 +50,9 @@ import { VerifyEmailComponent } from './screens/verify-email/verify-email.compon
     BrowserModule,
     AppRoutingModule
   ],
-  providers:[],
+  providers: [authInterceptorProviders,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-//========Autenticacao========
-// import { authInterceptorProviders } from './_helpers/auth.interceptor';
-// import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
-// import { AuthGuardService} from './_services/authguard.service'
-
-// providers: [authInterceptorProviders,
-  //   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-  //   JwtHelperService, AuthGuardService],

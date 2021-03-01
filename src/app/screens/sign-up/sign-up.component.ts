@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormControl,FormGroup,Validators } from '@angular/forms'
-// import { AuthService } from '../../_services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 
 import { Router } from '@angular/router';
 
@@ -22,13 +22,13 @@ export class SignUpComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  // constructor(private authService: AuthService, private router: Router) { }
+  
 
   ngOnInit() {
   }
 
-  constructor() {}
-  
+  constructor(private authService: AuthService, private router: Router) { }
+
   onSubmit(): void {
     let username = this.signUpForm.get('username').value;
     let email = this.signUpForm.get('email').value;
@@ -36,22 +36,22 @@ export class SignUpComponent implements OnInit {
 
     //Testando o formulario de registro
     
-    console.log("Username:",username)
-    console.log("Email:",email)
-    console.log("Password:",password)
+    // console.log("Username:",username)
+    // console.log("Email:",email)
+    // console.log("Password:",password)
 
-    // this.authService.register(username, email, password).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //     this.router.navigate(["user-profile"]);
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isSignUpFailed = true;
-    //   }
-    // );
+    this.authService.register(username, email, password).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.router.navigate(["user-profile"]);
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 
   
